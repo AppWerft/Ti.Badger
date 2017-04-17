@@ -78,7 +78,7 @@ The ShortcutBadger makes your Android App show the count of unread messages as a
             <br>
             (Not Fully Support)
             <br>
-            <img src="screenshots/ss_oppo.png?raw=true"/>
+           
             <br>
             (1.1.10+)
         </td>

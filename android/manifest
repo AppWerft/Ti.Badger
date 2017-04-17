@@ -5,7 +5,7 @@
 version: 1.0.0
 apiversion: 3
 architectures: armeabi-v7a x86
-description: badger
+description: Ti.Badger – Badges for Android!
 author: Rainer Knöterich
 license: Specify your license
 copyright: Copyright (c) 2017 by 
