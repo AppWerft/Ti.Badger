@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 3
+architectures: armeabi-v7a x86
+description: badger
+author: Rainer Knöterich
+license: Specify your license
+copyright: Copyright (c) 2017 by 
+
+# these should not be edited
+name: badger
+moduleid: de.appwerft.badger
+guid: 029eae52-054f-460a-a05c-351fbaf40f88
+platform: android
+minsdk: 6.0.2.GA
