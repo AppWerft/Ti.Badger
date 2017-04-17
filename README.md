@@ -1,106 +1,103 @@
-Appcelerator Titanium Mobile Module Project
-===========================================
+# Ti.Badger
 
-This is a skeleton Titanium Mobile Mobile module project.
+It is the Android module for Titanium for realizing the [Shortcutbadger](https://github.com/leolin310148/ShortcutBadger)
 
+The ShortcutBadger makes your Android App show the count of unread messages as a badge on your App shortcut!
 
-MODULE NAMING
--------------
+# Supported launchers:<br/>
 
-Choose a unique module id for your module.  This ID usually follows a namespace
-convention using DNS notation.  For example, com.appcelerator.module.test.  This
-ID can only be used once by all public modules in Titanium.
+<table>
+    <tr>
+        <td width="130">
+            <h3>Sony</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_sony.png"/>
+        </td>
+        <td width="130">
+            <h3>Samsung</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_samsung.png"/>
+        </td>
+        <td width="130">
+            <h3>LG</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_lg.png"/>
+        </td>
+        <td width="130">
+            <h3>HTC</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_htc.png"/>
+        </td>
+    </tr>
+    <tr>
+        <td width="130">
+            <h3>Xiaomi</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_xiaomi.png"/>
+            <br>
+        </td>
+        <td width="130">
+            <h3>ASUS</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_asus.png"/>
+        </td>
+        <td width="130">
+            <h3>ADW</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_adw.png"/>
+        </td>
+        <td width="130">
+            <h3>APEX</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_apex.png"/>
+        </td>
+    <tr>
+        <td width="130">
+            <h3>NOVA</h3>
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_nova.png"/>
+        </td>
+        <td width="130">
+            <h3>Huawei</h3>
+            <br>
+            (Not Fully Support)
+            <br>
+            <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_huawei.png"/>
+            <br>
+            (1.1.7+)
+        </td>
+        <td width="130">
+            <h3>ZUK</h3>
+            <br>
+            <img src="https://raw.github.com/linwoain/ShortcutBadger/master/screenshots/ss_zuk.png"/>
+            <br>
+            (1.1.10+)
+        </td>
+        <td width="130">
+            <h3>OPPO</h3>
+            <br>
+            (Not Fully Support)
+            <br>
+            <img src="screenshots/ss_oppo.png?raw=true"/>
+            <br>
+            (1.1.10+)
+        </td>
+    </tr>
+     <tr>
+        <td width="130">
+            <h3>EverythingMe</h3>
+                <br>
+                <img src="https://raw.github.com/leolin310148/ShortcutBadger/master/screenshots/ss_evme.png"/>
+        </td>
+     </tr>
+    
+</table>
 
-
-GET STARTED
-------------
-
-1. Edit manifest with the appropriate details about your module.
-2. Edit LICENSE to add your license details.
-3. Place any assets (such as PNG files) that are required anywhere in the module folder.
-4. Edit the timodule.json and configure desired settings.
-5. Code and build.
-
-
-DOCUMENTATION FOR YOUR MODULE
------------------------------
-
-You should provide at least minimal documentation for your module in `documentation` folder using the Markdown syntax.
-
-For more information on the Markdown syntax, refer to this documentation at:
-
-<http://daringfireball.net/projects/markdown/>
-
-
-TEST HARNESS EXAMPLE FOR YOUR MODULE
-------------------------------------
-
-The `example` directory contains a skeleton application test harness that can be
-used for testing and providing an example of usage to the users of your module.
-
-
-BUILDING YOUR MODULE
---------------------
-
-Simply run `titanium build --platform <name of platform> --build-type production --dir /path/to/module`.
-You can omit the --dir option if your working directory is in the module's project directory.
-
-
-INSTALL YOUR MODULE
--------------------
-
-Mac OS X
---------
-Copy the distribution zip file into the `~/Library/Application Support/Titanium` folder
-
-Linux
------
-Copy the distribution zip file into the `~/.titanium` folder
-
-Windows
--------
-Copy the distribution zip file into the `C:\ProgramData\Titanium` folder
-
-
-REGISTER YOUR MODULE
---------------------
-
-Register your module with your application by editing `tiapp.xml` and adding your module.
-Example:
-
-<modules>
-	<module version="0.1">de.appwerft.badger</module>
-</modules>
-
-When you run your project, the compiler will combine your module along with its dependencies
-and assets into the application.
-
-
-USING YOUR MODULE IN CODE
--------------------------
-
-To use your module in code, you will need to require it.
-
-For example,
-
-	var my_module = require('de.appwerft.badger');
-	my_module.foo();
-
-
-TESTING YOUR MODULE
--------------------
-
-To test with the script, execute:
-
-	titanium run --dir=YOURMODULEDIR
-
-This will execute the app.js in the example folder as a Titanium application.
-
-
-DISTRIBUTING YOUR MODULE
--------------------------
-
-You can choose to manually distribute your module distribution zip file or through the Titanium Marketplace!
-
-
-Cheers!
+## Usage
+```javascript
+var Badger = require("de.appwerft.badger");
+Badger.setBadge(2);
+Badger.removeBadge();
+Badger.getLauncher(); 
+```
+ 
