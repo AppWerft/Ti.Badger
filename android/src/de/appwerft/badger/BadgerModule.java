@@ -11,6 +11,7 @@ package de.appwerft.badger;
 import me.leolin.shortcutbadger.ShortcutBadgeException;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
+import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
@@ -54,12 +55,17 @@ public class BadgerModule extends KrollModule {
 	}
 
 	@Kroll.method
-	public String getLauncher() {
+	public KrollDict getLauncher() {
 		Intent intent = new Intent(Intent.ACTION_MAIN);
 		intent.addCategory(Intent.CATEGORY_HOME);
 		ResolveInfo resolveInfo = TiApplication.getAppRootOrCurrentActivity()
 				.getPackageManager()
 				.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
-		return resolveInfo.activityInfo.packageName;
+		KrollDict kd = new KrollDict();
+
+		kd.put("packageName", resolveInfo.activityInfo.packageName);
+		kd.put("processName", resolveInfo.activityInfo.processName);
+		kd.put("name", resolveInfo.activityInfo.applicationInfo.name);
+		return kd;
 	}
 }
