@@ -33,7 +33,11 @@ public class BadgerModule extends KrollModule {
 	}
 
 	@Kroll.method
-	public void setBadge(final int a) {
+	public void setBadge(@Kroll.argument(optional = true) final Integer a) {
+		if (a == null || a == 0) {
+			removeBadge();
+			return;
+		}
 		if (TiApplication.isUIThread()) {
 			handleSetBadge(a);
 		} else {
@@ -58,8 +62,7 @@ public class BadgerModule extends KrollModule {
 
 	}
 
-	@Kroll.method
-	public boolean removeBadge() {
+	private boolean handleRemoveBadge() {
 		try {
 			ShortcutBadger.removeCountOrThrow(TiApplication.getInstance()
 					.getApplicationContext());
@@ -67,6 +70,21 @@ public class BadgerModule extends KrollModule {
 		} catch (ShortcutBadgeException e) {
 			e.printStackTrace();
 			return false;
+		}
+
+	}
+
+	@Kroll.method
+	public void removeBadge() {
+		if (TiApplication.isUIThread()) {
+			handleRemoveBadge();
+		} else {
+			TiMessenger.postOnMain(new Runnable() {
+				@Override
+				public void run() {
+					handleRemoveBadge();
+				}
+			});
 		}
 	}
 
