@@ -14,6 +14,7 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
+import org.appcelerator.kroll.common.TiMessenger;
 import org.appcelerator.titanium.TiApplication;
 
 import android.content.Intent;
@@ -32,7 +33,20 @@ public class BadgerModule extends KrollModule {
 	}
 
 	@Kroll.method
-	public boolean setBadge(int a) {
+	public void setBadge(final int a) {
+		if (TiApplication.isUIThread()) {
+			handleSetBadge(a);
+		} else {
+			TiMessenger.postOnMain(new Runnable() {
+				@Override
+				public void run() {
+					handleSetBadge(a);
+				}
+			});
+		}
+	}
+
+	private boolean handleSetBadge(int a) {
 		try {
 			ShortcutBadger.applyCountOrThrow(TiApplication.getInstance()
 					.getApplicationContext(), a);
@@ -41,12 +55,14 @@ public class BadgerModule extends KrollModule {
 			e.printStackTrace();
 			return false;
 		}
+
 	}
 
 	@Kroll.method
 	public boolean removeBadge() {
 		try {
-			ShortcutBadger.removeCountOrThrow(TiApplication.getInstance());
+			ShortcutBadger.removeCountOrThrow(TiApplication.getInstance()
+					.getApplicationContext());
 			return true;
 		} catch (ShortcutBadgeException e) {
 			e.printStackTrace();

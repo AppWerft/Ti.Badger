@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.0.2
+version: 1.0.3
 apiversion: 3
 architectures: armeabi-v7a x86
 description: Ti.Badger – Badges for Android!
@@ -15,4 +15,4 @@ name: badger
 moduleid: de.appwerft.badger
 guid: 029eae52-054f-460a-a05c-351fbaf40f88
 platform: android
-minsdk: 6.0.2.GA
+minsdk: 6.0.0.GA
