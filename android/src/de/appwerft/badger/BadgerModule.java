@@ -33,7 +33,8 @@ public class BadgerModule extends KrollModule {
 	@Kroll.method
 	public boolean setBadge(int a) {
 		try {
-			ShortcutBadger.applyCountOrThrow(TiApplication.getInstance(), 2);
+			ShortcutBadger.applyCountOrThrow(TiApplication.getInstance()
+					.getApplicationContext(), a);
 			return true;
 		} catch (ShortcutBadgeException e) {
 			e.printStackTrace();
